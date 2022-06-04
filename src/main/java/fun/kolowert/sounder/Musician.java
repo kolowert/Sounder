@@ -33,13 +33,16 @@ public class Musician implements Runnable {
 
     private void initRhythms() {
         rhythms.add(new Rhythm("4/4 a",
-                new double[]{0.5, 0.5, 1.0, 1.0, 1.0, 0.5, 0.5, 1.0, 0.5, 0.5, 1.0, 0.25, 0.25, 0.5, 0.5, 0.25, 0.25, 1.0, 0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 1.0},
+                new double[]{0.5, 0.5, 1.0, 1.0, 1.0, 0.5, 0.5, 1.0, 0.5, 0.5, 1.0, 0.25, 0.25, 0.5, 0.5, 0.25, 0.25,
+                        1.0, 0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 1.0},
                 new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.5, 0.5, 1.0, 0.5, 0.5, 2.0, 2.0}));
         rhythms.add(new Rhythm("4/4 b",
-                new double[]{0.5, 0.5, 1.0, 1.0, 1.0, 0.5, 0.5, 1.0, 0.5, 0.5, 1.0, 0.5, 0.5, 0.5, 0.5, 1.0, 0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 1.0},
+                new double[]{0.5, 0.5, 1.0, 1.0, 1.0, 0.5, 0.5, 1.0, 0.5, 0.5, 1.0, 0.5, 0.5, 0.5, 0.5, 1.0, 0.5, 0.5,
+                        1.0, 1.0, 0.5, 0.5, 1.0},
                 new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.5, 0.5, 1.0, 0.5, 0.5, 2.0, 2.0}));
         rhythms.add(new Rhythm("4/4 c",
-                new double[]{1.0, 1.0, 1.0, 1.0, 0.5, 0.5, 1.0, 0.5, 0.5, 1.0, 0.5, 0.5, 0.5, 0.5, 1.0, 0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 1.0},
+                new double[]{1.0, 1.0, 1.0, 1.0, 0.5, 0.5, 1.0, 0.5, 0.5, 1.0, 0.5, 0.5, 0.5, 0.5, 1.0, 0.5, 0.5, 1.0,
+                        1.0, 0.5, 0.5, 1.0},
                 new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 3.0, 1.0, 1.0, 2.0, 4.0}));
     }
 
@@ -72,11 +75,10 @@ public class Musician implements Runnable {
 
         int counter = 0;
         int repitation = 4;
-        int noteOrder = 0;
         while (counter < repitation) {
             ++counter;
             for (int i = 0; i < durations.length; i++) {
-                noteOrder = (int) (notes.length * Math.random());
+                int noteOrder = (int) (notes.length * Math.random());
                 if (notes[noteOrder] > 0) {
                     SoundUtils.tone(notes[noteOrder], durations[i], volume);
                 } else {

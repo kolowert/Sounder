@@ -9,12 +9,12 @@ public class MusicPlayer {
     public static void play() {
         System.out.println("MusicPlayer started");
 
-        int baseNoteDuration = 600;
-        double soloVolume = 0.85;
-        double bassVolume = 0.95;
+        final int baseNoteDuration = 600;
+        final double soloVolume = 0.85;
+        final double bassVolume = 0.95;
 
-        int harmonicaOrder = 0;
-        int rhythmOrder = 2;
+        final int harmonicaOrder = 0;
+        final int rhythmOrder = 2;
 
         Thread solo1 = new Thread(
                 new Musician(MusicType.SOLO, harmonicaOrder, rhythmOrder, baseNoteDuration, soloVolume), "solo1");
